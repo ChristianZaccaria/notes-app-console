@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import kotlin.test.assertFalse
 
 
 class NoteAPITest {
@@ -24,7 +25,7 @@ class NoteAPITest {
         learnKotlin = Note("Learning Kotlin", 5, "College", false)
         summerHoliday = Note("Summer Holiday to France", 1, "Holiday", false)
         codeApp = Note("Code App", 4, "Work", false)
-        testApp = Note("Test App", 4, "Work", false)
+        testApp = Note("Test App", 4, "Work", true)
         swim = Note("Swim - Pool", 3, "Hobby", false)
 
 
@@ -89,6 +90,26 @@ class NoteAPITest {
             assertTrue(notesString.contains("test app"))
             assertTrue(notesString.contains("swim"))
             assertTrue(notesString.contains("summer holiday"))
+        }
+    }
+
+    @Nested
+    inner class ActiveNotes {
+        @Test
+        fun `listActiveNotes returns no active notes stored when ArrayList is empty`(){
+            assertEquals(0, emptyNotes!!.numberOfActiveNotes())
+            assertTrue(emptyNotes!!.listActiveNotes().lowercase().contains("no active notes stored"))
+        }
+
+        @Test
+        fun `listActiveNotes returns Active Notes stored in ArrayList`(){
+            assertEquals(4, populatedNotes!!.numberOfActiveNotes())
+            val activeNotesString = populatedNotes!!.listActiveNotes().lowercase()
+            assertTrue(activeNotesString.contains("learning kotlin"))
+            assertTrue(activeNotesString.contains("code app"))
+            assertTrue(activeNotesString.contains("summer holiday"))
+            assertFalse(activeNotesString.contains("test app"))
+            assertTrue(activeNotesString.contains("swim"))
         }
     }
 }

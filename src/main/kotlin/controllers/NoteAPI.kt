@@ -44,4 +44,33 @@ class NoteAPI {
         return (index >= 0 && index < list.size)
     }
 
+
+
+    fun listActiveNotes(): String {
+        if (numberOfActiveNotes() == 0) {
+            return "No active notes stored"
+        }
+        else {
+            var activeNotes = ""
+            for (note in notes) {
+                if (!note.isNoteArchived) {
+                    activeNotes += "${notes.indexOf(note)}: $note \n"
+                }
+            }
+            return activeNotes
+        }
+    }
+
+
+    fun numberOfActiveNotes(): Int {
+        //helper method to determine how many active notes there are
+        var counter = 0
+        for (note in notes) {
+            if (!note.isNoteArchived) {
+                counter++
+            }
+        }
+        return counter
+    }
+
 }

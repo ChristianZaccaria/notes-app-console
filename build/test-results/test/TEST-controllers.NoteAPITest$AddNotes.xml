@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="controllers.NoteAPITest$AddNotes" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-03-08T20:18:36" hostname="TEMPADM-R1BQ1DM" time="0.035">
+<testsuite name="controllers.NoteAPITest$AddNotes" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-03-08T22:05:10" hostname="TEMPADM-R1BQ1DM" time="0.038">
   <properties/>
-  <testcase name="adding a Note to a populated list adds to ArrayList()" classname="controllers.NoteAPITest$AddNotes" time="0.032"/>
+  <testcase name="adding a Note to a populated list adds to ArrayList()" classname="controllers.NoteAPITest$AddNotes" time="0.035"/>
   <testcase name="adding a Note to an empty list adds to ArrayList()" classname="controllers.NoteAPITest$AddNotes" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
