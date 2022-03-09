@@ -112,4 +112,25 @@ class NoteAPITest {
             assertTrue(activeNotesString.contains("swim"))
         }
     }
+
+    @Nested
+    inner class ArchivedNotes {
+        @Test
+        fun `listArchivedNotes returns no archived notes when ArrayList is empty`() {
+            assertEquals(0, emptyNotes!!.numberOfArchivedNotes())
+            assertTrue(emptyNotes!!.listArchivedNotes().lowercase().contains("no archived notes"))
+        }
+
+
+        @Test
+        fun `listArchivedNotes returns Archived Notes stored in ArrayList`() {
+            assertEquals(1, populatedNotes!!.numberOfArchivedNotes())
+            val archivedNotesString = populatedNotes!!.listArchivedNotes().lowercase()
+            assertFalse(archivedNotesString.contains("learning kotlin"))
+            assertFalse(archivedNotesString.contains("code app"))
+            assertFalse(archivedNotesString.contains("summer holiday"))
+            assertTrue(archivedNotesString.contains("test app"))
+            assertFalse(archivedNotesString.contains("swim"))
+        }
+    }
 }

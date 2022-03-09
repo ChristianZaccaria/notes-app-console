@@ -73,4 +73,32 @@ class NoteAPI {
         return counter
     }
 
+
+    fun listArchivedNotes(): String {
+        if (numberOfArchivedNotes() == 0) {
+            return "No archived notes stored"
+        }
+        else {
+            var archivedNotes = ""
+            for (note in notes) {
+                if (note.isNoteArchived) {
+                    archivedNotes += "${notes.indexOf(note)}: $note \n"
+                }
+            }
+            return archivedNotes
+        }
+    }
+
+
+    fun numberOfArchivedNotes(): Int {
+        //helper method to determine how many active notes there are
+        var counter = 0
+        for (note in notes) {
+            if (note.isNoteArchived) {
+                counter++
+            }
+        }
+        return counter
+    }
+
 }
