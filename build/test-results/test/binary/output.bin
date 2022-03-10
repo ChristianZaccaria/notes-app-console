@@ -1,0 +1,4 @@
+Å1 notes with priority 1: 1: Note(noteTitle=Summer Holiday to France, notePriority=1, noteCategory=Holiday, isNoteArchived=false)
+n2 notes with priority 4: 2: Note(noteTitle=Code App, notePriority=4, noteCategory=Work, isNoteArchived=false)
+T3: Note(noteTitle=Test App, notePriority=4, noteCategory=Work, isNoteArchived=true)
+r1 notes with priority 3: 4: Note(noteTitle=Swim - Pool, notePriority=3, noteCategory=Hobby, isNoteArchived=false)
