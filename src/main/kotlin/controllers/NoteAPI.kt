@@ -116,7 +116,7 @@ class NoteAPI {
             return if (listOfNotes.equals("")) {
                 "No notes with priority: $priority"
             } else {
-                print("${numberOfNotesByPriority(priority)} notes with priority $priority: $listOfNotes")
+
                 "${numberOfNotesByPriority(priority)} notes with priority $priority: $listOfNotes"
             }
         }
@@ -128,6 +128,45 @@ class NoteAPI {
         var counter = 0
         for (note in notes) {
             if (note.notePriority == priorityToCheck) {
+                counter++
+            }
+        }
+        return counter
+    }
+
+
+
+
+
+    fun listNotesByCategory(category: String): String {
+        if (notes.isEmpty()) {
+            return "no notes stored"
+
+        }
+        else{
+            var listOfNotes = ""
+            for (i in notes.indices) {
+                if (notes[i].noteCategory.lowercase() == category.lowercase()) {
+                    listOfNotes += "$i: ${notes[i]}\n"
+
+                }
+
+            }
+            return if (listOfNotes.equals("")) {
+                "No notes with category: ${category.lowercase()}"
+            } else {
+               "${numberOfNotesByCategory(category.lowercase())} notes with category ${category.lowercase()}: $listOfNotes"
+            }
+        }
+
+    }
+
+
+
+    fun numberOfNotesByCategory(categoryCheck: String): Int {
+        var counter = 0
+        for (note in notes) {
+            if (note.noteCategory.lowercase() == categoryCheck.lowercase()) {
                 counter++
             }
         }

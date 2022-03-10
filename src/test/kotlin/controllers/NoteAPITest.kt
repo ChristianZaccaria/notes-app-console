@@ -189,4 +189,45 @@ class NoteAPITest {
         }
     }
 
+    @Nested
+    inner class CategoryNotes {
+        @Test
+        fun `listNotesByCategory returns No Notes when ArrayList is empty`() {
+            assertEquals(0, emptyNotes!!.numberOfNotes())
+            assertTrue(emptyNotes!!.listNotesByCategory("").lowercase().contains("no notes")
+            )
+        }
+
+
+        @Test
+        fun `listNotesByCategory returns no notes when no notes of that category exist`() {
+            assertEquals(5, populatedNotes!!.numberOfNotes())
+            val categoryDummyString = populatedNotes!!.listNotesByCategory("fooling around").lowercase()
+            assertTrue(categoryDummyString.contains("no notes"))
+            assertTrue(categoryDummyString.contains("fooling around"))
+        }
+
+        @Test
+        fun `listNotesByCategory returns all notes that match that category when notes of that category exist`() {
+            assertEquals(5, populatedNotes!!.numberOfNotes())
+            val categoryWorkString = populatedNotes!!.listNotesByCategory("Work").lowercase()
+            assertTrue(categoryWorkString.contains("2 note"))
+            assertTrue(categoryWorkString.contains("category work"))
+            assertFalse(categoryWorkString.contains("holiday"))
+            assertFalse(categoryWorkString.contains("study"))
+            assertFalse(categoryWorkString.contains("college"))
+            assertFalse(categoryWorkString.contains("Hobby"))
+            assertTrue(categoryWorkString.contains("test app"))
+
+
+            val categoryCollegeString = populatedNotes!!.listNotesByCategory("college").lowercase()
+            assertTrue(categoryCollegeString.contains("1 note"))
+            assertTrue(categoryCollegeString.contains("category college"))
+            assertFalse(categoryCollegeString.contains("holiday"))
+            assertFalse(categoryCollegeString.contains("study"))
+            assertTrue(categoryCollegeString.contains("college"))
+            assertFalse(categoryCollegeString.contains("Hobby"))
+            assertTrue(categoryCollegeString.contains("learning kotlin"))
+        }
+    }
 }
