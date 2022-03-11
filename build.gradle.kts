@@ -23,6 +23,11 @@ dependencies {
     //I was stuck here for a moment because the mvnrepository had "testImplementation", I was getting errors
     // until I simply deleted the "test" word.
 
+    // https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream
+    implementation("com.thoughtworks.xstream:xstream:1.4.18")
+
+    // https://mvnrepository.com/artifact/org.codehaus.jettison/jettison
+    implementation("org.codehaus.jettison:jettison:1.4.1")
 
 
 
