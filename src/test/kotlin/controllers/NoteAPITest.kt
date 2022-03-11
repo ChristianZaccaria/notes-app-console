@@ -362,4 +362,30 @@ class NoteAPITest {
             assertEquals(storingNotes.findNote(2), loadedNotes.findNote(2))
         }
     }
+
+
+    @Nested
+    inner class ArchiveNotes {
+        @Test
+        fun `archiving a note that does not exist returns false`() {
+            assertFalse(populatedNotes!!.archiveNote(6))
+            assertFalse(populatedNotes!!.archiveNote(-1))
+            assertFalse(emptyNotes!!.archiveNote(0))
+        }
+
+
+        @Test
+        fun `archiving an already archived note returns false`() {
+            assertTrue(populatedNotes!!.findNote(3)!!.isNoteArchived)
+            assertFalse(populatedNotes!!.archiveNote(3))
+        }
+
+
+        @Test
+        fun `archiving an active note that exists returns true and archives`() {
+            assertFalse(populatedNotes!!.findNote(1)!!.isNoteArchived)
+            assertTrue(populatedNotes!!.archiveNote(1))
+            assertTrue(populatedNotes!!.findNote(1)!!.isNoteArchived)
+        }
+    }
 }
