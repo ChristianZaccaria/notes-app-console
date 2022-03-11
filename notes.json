@@ -1,1 +1,1 @@
-{"object-stream":{"list":[{"models.Note":{"noteTitle":"Jack","notePriority":3,"noteCategory":"Whiskey","isNoteArchived":false}}]}}
+{"object-stream":{"list":[{"models.Note":[{"noteTitle":"Study German","notePriority":4,"noteCategory":"College","isNoteArchived":false},{"noteTitle":"Book Barcelona Trip","notePriority":5,"noteCategory":"Holiday","isNoteArchived":false},{"noteTitle":"Play guitar with Band","notePriority":2,"noteCategory":"Hobby","isNoteArchived":false},{"noteTitle":"Work from home","notePriority":4,"noteCategory":"Work","isNoteArchived":false}]}]}}

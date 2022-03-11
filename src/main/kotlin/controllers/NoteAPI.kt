@@ -118,7 +118,7 @@ class NoteAPI(serializerType: Serializer) {
                 "No notes with priority: $priority"
             } else {
 
-                "${numberOfNotesByPriority(priority)} notes with priority $priority: $listOfNotes"
+                "${numberOfNotesByPriority(priority)} notes with priority $priority:\n $listOfNotes"
             }
         }
 
