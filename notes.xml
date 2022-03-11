@@ -1,0 +1,16 @@
+<object-stream>
+  <list>
+    <models.Note>
+      <noteTitle>Jack</noteTitle>
+      <notePriority>5</notePriority>
+      <noteCategory>Daniels</noteCategory>
+      <isNoteArchived>false</isNoteArchived>
+    </models.Note>
+    <models.Note>
+      <noteTitle>Mich</noteTitle>
+      <notePriority>3</notePriority>
+      <noteCategory>Jacksson</noteCategory>
+      <isNoteArchived>false</isNoteArchived>
+    </models.Note>
+  </list>
+</object-stream>
