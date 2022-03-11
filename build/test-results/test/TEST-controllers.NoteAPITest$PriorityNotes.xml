@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="controllers.NoteAPITest$PriorityNotes" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-03-11T11:23:55" hostname="TEMPADM-R1BQ1DM" time="0.018">
+<testsuite name="controllers.NoteAPITest$PriorityNotes" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-03-11T13:43:17" hostname="TEMPADM-R1BQ1DM" time="0.014">
   <properties/>
-  <testcase name="listNotesBySelectedPriority returns No Notes when ArrayList is empty()" classname="controllers.NoteAPITest$PriorityNotes" time="0.003"/>
-  <testcase name="listNotesBySelectedPriority returns all notes that match that priority when notes of that priority exist()" classname="controllers.NoteAPITest$PriorityNotes" time="0.01"/>
-  <testcase name="listNotesBySelectedPriority returns no notes when no notes of that priority exist()" classname="controllers.NoteAPITest$PriorityNotes" time="0.001"/>
+  <testcase name="listNotesBySelectedPriority returns No Notes when ArrayList is empty()" classname="controllers.NoteAPITest$PriorityNotes" time="0.004"/>
+  <testcase name="listNotesBySelectedPriority returns all notes that match that priority when notes of that priority exist()" classname="controllers.NoteAPITest$PriorityNotes" time="0.003"/>
+  <testcase name="listNotesBySelectedPriority returns no notes when no notes of that priority exist()" classname="controllers.NoteAPITest$PriorityNotes" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
