@@ -29,12 +29,12 @@ fun mainMenu() : Int {
          > --------------------------------
          > |        NOTE KEEPER APP       |
          > --------------------------------
-         > | NOTE MENU
+         > | NOTE MENU                    |
          > |   1) Add a note              |
-         > |   2) List all notes          |
+         > |   2) List notes              |
          > |   3) Update a note           |
          > |   4) Delete a note           |
-         > |   5) Archive a note
+         > |   5) Archive a note          |
          > |  20) Save Notes              |
          > |  21) Load Notes              |
          > --------------------------------
@@ -80,7 +80,69 @@ fun addNote(){
 
 fun listNotes(){
     //logger.info { "listNotes() function invoked" }
+    if (noteAPI.numberOfNotes() > 0) {
+        val option = readNextInt("""
+                  > -----------------------------------------
+                  > |  1) View ALL notes                    |
+                  > |  2) View ACTIVE notes                 |
+                  > |  3) View ARCHIVED notes               |
+                  > |  4) View Most Important Notes (4-5)   |
+                  > |  5) View Least Important Notes (1-3)  |
+                  > |  6) View Notes about Work or College  |
+                  > |  7) View Notes about Hobby or Holiday |
+                  > -----------------------------------------
+          > ==>>""".trimMargin(">"))
+
+
+        when (option) {
+            1 -> listAllNotes()
+            2 -> listActiveNotes()
+            3 -> listArchivedNotes()
+            4 -> listPriority4and5()
+            5 -> listPriority1and2and3()
+            6 -> listWorkNotes()
+            7 -> listFunNotes()
+            else -> println("Invalid option entered $option")
+        }
+
+
+        }
+    else {
+        println("Option Invalid - No Notes Stored")
+    }
+}
+
+fun listAllNotes() {
     println(noteAPI.listAllNotes())
+}
+
+fun listActiveNotes() {
+    println(noteAPI.listActiveNotes())
+}
+
+fun listArchivedNotes() {
+    println(noteAPI.listArchivedNotes())
+}
+
+fun listPriority4and5() {
+    println(noteAPI.listNotesBySelectedPriority(5))
+    println(noteAPI.listNotesBySelectedPriority(4))
+}
+
+fun listPriority1and2and3() {
+    println(noteAPI.listNotesBySelectedPriority(3))
+    println(noteAPI.listNotesBySelectedPriority(2))
+    println(noteAPI.listNotesBySelectedPriority(1))
+}
+
+fun listWorkNotes() {
+    println(noteAPI.listNotesByCategory("Work"))
+    println(noteAPI.listNotesByCategory("College"))
+}
+
+fun listFunNotes() {
+    println(noteAPI.listNotesByCategory("Hobby"))
+    println(noteAPI.listNotesByCategory("Holiday"))
 }
 
 fun updateNote(){
