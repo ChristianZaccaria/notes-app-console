@@ -79,26 +79,17 @@ class NoteAPI(serializerType: Serializer) {
     }
 
 
-    fun listNotesBySelectedPriority(priority: Int): String {
-        if (notes.isEmpty()) {
-            return "no notes stored"
-        }
-        else{
-        var listOfNotes = ""
-        for (i in notes.indices) {
-            if (notes[i].notePriority == priority) {
-                listOfNotes += "$i: ${notes[i]}\n"
-            }
-        }
-            return if (listOfNotes.equals("")) {
-                "No notes with priority: $priority"
-            } else {
+    fun listNotesBySelectedPriority(priority: Int): String =
+        if (notes.isEmpty()) "no notes stored"
 
-                "${numberOfNotesByPriority(priority)} notes with priority $priority:\n $listOfNotes"
-            }
-        }
+        else if (numberOfNotesByPriority(priority) == 0) "\nNo notes with priority: $priority"
 
-    }
+        else "\n${numberOfNotesByPriority(priority)} notes with priority $priority:\n" +
+            notes.filter { note -> note.notePriority == priority }
+                .joinToString(separator = "\n") { note -> notes.indexOf(note).toString() + ": " + note.toString()}
+
+
+
 
     fun numberOfNotesByPriority(priorityToCheck :Int): Int {
         //helper method to determine how many notes there are of a specific priority
@@ -112,28 +103,17 @@ class NoteAPI(serializerType: Serializer) {
 
 
 
-    fun listNotesByCategory(category: String): String {
-        if (notes.isEmpty()) {
-            return "no notes stored"
+    fun listNotesByCategory(category: String): String =
+        if (notes.isEmpty()) "no notes stored"
 
-        }
-        else{
-            var listOfNotes = ""
-            for (i in notes.indices) {
-                if (notes[i].noteCategory.lowercase() == category.lowercase()) {
-                    listOfNotes += "$i: ${notes[i]}\n"
+        else if (numberOfNotesByCategory(category) == 0) "\nNo notes with category: ${category.lowercase()}"
 
-                }
+        else "\n${numberOfNotesByCategory(category.lowercase())} notes with category ${category.lowercase()}" +
+                    notes.filter { note -> note.noteCategory.lowercase() == category.lowercase() }
+                        .joinToString(separator = "\n") { note -> notes.indexOf(note).toString() + ": " + note.toString()}
 
-            }
-            return if (listOfNotes.equals("")) {
-                "No notes with category: ${category.lowercase()}"
-            } else {
-               "${numberOfNotesByCategory(category.lowercase())} notes with category ${category.lowercase()}: $listOfNotes"
-            }
-        }
 
-    }
+
 
 
 
