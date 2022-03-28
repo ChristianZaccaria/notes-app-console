@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="controllers.NoteAPITest$ArchivedNotes" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-03-28T11:27:17" hostname="TEMPADM-R1BQ1DM" time="0.005">
-  <properties/>
-  <testcase name="listArchivedNotes returns no archived notes when ArrayList is empty()" classname="controllers.NoteAPITest$ArchivedNotes" time="0.002"/>
-  <testcase name="listArchivedNotes returns Archived Notes stored in ArrayList()" classname="controllers.NoteAPITest$ArchivedNotes" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
