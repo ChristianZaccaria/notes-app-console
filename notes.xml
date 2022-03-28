@@ -2,20 +2,26 @@
   <list>
     <models.Note>
       <noteTitle>Test App</noteTitle>
+      <noteContents>Make sure everything works</noteContents>
       <notePriority>4</notePriority>
       <noteCategory>Work</noteCategory>
+      <noteStatus>2</noteStatus>
       <isNoteArchived>true</isNoteArchived>
     </models.Note>
     <models.Note>
       <noteTitle>Swim - Pool</noteTitle>
+      <noteContents>Practice 10 laps</noteContents>
       <notePriority>3</notePriority>
       <noteCategory>Hobby</noteCategory>
+      <noteStatus>1</noteStatus>
       <isNoteArchived>false</isNoteArchived>
     </models.Note>
     <models.Note>
       <noteTitle>Summer Holiday to France</noteTitle>
+      <noteContents>Buy the flight tickets and save money</noteContents>
       <notePriority>1</notePriority>
       <noteCategory>Holiday</noteCategory>
+      <noteStatus>1</noteStatus>
       <isNoteArchived>false</isNoteArchived>
     </models.Note>
   </list>
