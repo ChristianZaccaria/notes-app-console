@@ -29,6 +29,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.codehaus.jettison/jettison
     implementation("org.codehaus.jettison:jettison:1.4.1")
 
+// https://mvnrepository.com/artifact/org.yaml/snakeyaml
+    implementation("org.yaml:snakeyaml:1.26")
+
 
 
 }
