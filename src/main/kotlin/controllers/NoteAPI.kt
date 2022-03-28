@@ -43,20 +43,13 @@ class NoteAPI(serializerType: Serializer) {
 
 
 
-    fun listActiveNotes(): String {
-        if (numberOfActiveNotes() == 0) {
-            return "No active notes stored"
-        }
-        else {
-            var activeNotes = ""
-            for (note in notes) {
-                if (!note.isNoteArchived) {
-                    activeNotes += "${notes.indexOf(note)}: $note \n"
-                }
-            }
-            return activeNotes
-        }
-    }
+    fun listActiveNotes(): String =
+        if (numberOfActiveNotes() == 0) "No active notes stored"
+
+        else notes.filter { note -> !note.isNoteArchived }
+                .joinToString (separator = "\n") { note -> notes.indexOf(note).toString() + ": " + note.toString()}
+
+
 
 
     fun numberOfActiveNotes(): Int {
