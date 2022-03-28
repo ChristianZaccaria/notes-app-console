@@ -65,13 +65,10 @@ class NoteAPI(serializerType: Serializer) {
 
     fun numberOfActiveNotes(): Int {
         //helper method to determine how many active notes there are
-        var counter = 0
-        for (note in notes) {
-            if (!note.isNoteArchived) {
-                counter++
-            }
-        }
-        return counter
+       return notes.stream()
+            .filter{note: Note -> !note.isNoteArchived}
+            .count()
+            .toInt()
     }
 
 
@@ -93,13 +90,10 @@ class NoteAPI(serializerType: Serializer) {
 
     fun numberOfArchivedNotes(): Int {
         //helper method to determine how many active notes there are
-        var counter = 0
-        for (note in notes) {
-            if (note.isNoteArchived) {
-                counter++
-            }
-        }
-        return counter
+        return notes.stream()
+            .filter{note: Note -> note.isNoteArchived}
+            .count()
+            .toInt()
     }
 
 
@@ -126,13 +120,10 @@ class NoteAPI(serializerType: Serializer) {
 
     fun numberOfNotesByPriority(priorityToCheck :Int): Int {
         //helper method to determine how many notes there are of a specific priority
-        var counter = 0
-        for (note in notes) {
-            if (note.notePriority == priorityToCheck) {
-                counter++
-            }
-        }
-        return counter
+        return notes.stream()
+            .filter{note: Note -> note.notePriority == priorityToCheck}
+            .count()
+            .toInt()
     }
 
 
@@ -165,13 +156,10 @@ class NoteAPI(serializerType: Serializer) {
 
 
     fun numberOfNotesByCategory(categoryCheck: String): Int {
-        var counter = 0
-        for (note in notes) {
-            if (note.noteCategory.lowercase() == categoryCheck.lowercase()) {
-                counter++
-            }
-        }
-        return counter
+        return notes.stream()
+            .filter{note: Note -> note.noteCategory.lowercase() == categoryCheck.lowercase()}
+            .count()
+            .toInt()
     }
 
 
