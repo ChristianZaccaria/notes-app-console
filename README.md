@@ -11,13 +11,14 @@ Console Notes App written in Kotlin
    - View Most Important Notes (4-5)
    - View Least Important Notes (1-3)
    - View Notes about Work or College
-   - View Notes about Hobby or Holiday
+   - View Notes about Hobby, Holiday or Misc
+   
 3. Update a Note :memo:      ***Working***
 4. Delete a Note :wastebasket:	   ***Working***
-5. Archive a Note	   ***Working***
-6. Search a Note	   ***Working***
-7. Save Notes	   ***Working***
-8. Load Notes	   ***Working***
+5. Archive a Note	:file_cabinet:   ***Working***
+6. Search a Note	:mag:	   ***Working***
+7. Save Notes :arrow_heading_up:	   ***Working***
+8. Load Notes	:arrows_counterclockwise:	   ***Working***
 
 This app was developed using **Kotlin :star::star::star::star::star:**
 
@@ -26,11 +27,12 @@ This app lets you add your own notes, list them, edit them, and also delete them
 - Write down a to-do list.
 - Grocery list.
 - Notes of things you want to remember.
+- You can make a list based on level of priority (1-low, 2, 3, 4, 5-high)
 
 ## Getting Started with the Project
-Once you run the app, you will be prompt to enter a number to choose your option from the menu.
+Once you run the app, you will be prompted to enter a number to choose an option from the menu.
 
-![Screenshot of Menu](https://user-images.githubusercontent.com/73656840/155847853-59e222ba-6100-4905-abe1-2b614d4fc36b.png)
+![Screenshot (263)](https://user-images.githubusercontent.com/73656840/160697197-1f5202d3-9a32-40d5-a318-883ca7672b5a.png)
 
 
 ## Project Author / Contributers
