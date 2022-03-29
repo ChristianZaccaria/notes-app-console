@@ -5,8 +5,19 @@ Console Notes App written in Kotlin
 :spiral_notepad: The Notes App is a **Menu-Driven Console App** that allows the user to perform the following on a List of Notes:
 1. Add a Note :page_facing_up:		**Working**
 2. List Notes :open_file_folder:	**Working**
-3. Update a Note :memo:      ***Not Working Yet***
-4. Delete a Note :wastebasket:	   ***Not Working Yet***
+   - View All Notes
+   - View Active Notes
+   - View Archived Notes
+   - View Most Important Notes (4-5)
+   - View Least Important Notes (1-3)
+   - View Notes about Work or College
+   - View Notes about Hobby or Holiday
+3. Update a Note :memo:      ***Working***
+4. Delete a Note :wastebasket:	   ***Working***
+5. Archive a Note	   ***Working***
+6. Search a Note	   ***Working***
+7. Save Notes	   ***Working***
+8. Load Notes	   ***Working***
 
 This app was developed using **Kotlin :star::star::star::star::star:**
 
