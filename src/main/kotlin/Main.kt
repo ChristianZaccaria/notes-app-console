@@ -106,15 +106,15 @@ fun listNotes(){
     //logger.info { "listNotes() function invoked" }
     if (noteAPI.numberOfNotes() > 0) {
         val option = readNextInt("""
-                  > -----------------------------------------
-                  > |  1) View ALL notes                    |
-                  > |  2) View ACTIVE notes                 |
-                  > |  3) View ARCHIVED notes               |
-                  > |  4) View Most Important Notes (4-5)   |
-                  > |  5) View Least Important Notes (1-3)  |
-                  > |  6) View Notes about Work or College  |
-                  > |  7) View Notes about Hobby or Holiday |
-                  > -----------------------------------------
+                  > -----------------------------------------------
+                  > |  1) View ALL notes                          |
+                  > |  2) View ACTIVE notes                       |
+                  > |  3) View ARCHIVED notes                     |
+                  > |  4) View Most Important Notes (4-5)         |
+                  > |  5) View Least Important Notes (1-3)        |
+                  > |  6) View Notes about Work or College        |
+                  > |  7) View Notes about Hobby, Holiday or Misc |
+                  > -----------------------------------------------
           > ==>>""".trimMargin(">"))
 
 
@@ -167,6 +167,7 @@ fun listWorkNotes() {
 fun listFunNotes() {
     println(noteAPI.listNotesByCategory("Hobby"))
     println(noteAPI.listNotesByCategory("Holiday"))
+    println(noteAPI.listNotesByCategory("Misc"))
 }
 
 fun updateNote(){

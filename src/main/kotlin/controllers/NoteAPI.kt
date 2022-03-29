@@ -98,7 +98,7 @@ class NoteAPI(serializerType: Serializer) {
 
         else if (numberOfNotesByCategory(category) == 0) "\nNo notes with category: ${category.lowercase()}"
 
-        else "\n${numberOfNotesByCategory(category.lowercase())} notes with category ${category.lowercase()}" +
+        else "\n${numberOfNotesByCategory(category.lowercase())} notes with category ${category.lowercase()}\n" +
                     notes.filter { note -> note.noteCategory.lowercase() == category.lowercase() }
                         .joinToString(separator = "\n") { note -> notes.indexOf(note).toString() + ": " + note.toString()}
 
