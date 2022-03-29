@@ -1,12 +1,13 @@
 import controllers.NoteAPI
 import models.Note
 import mu.KotlinLogging
-import persistence.JSONSerializer
-import persistence.XMLSerializer
 import persistence.YAMLSerializer
+import utils.CategoryUtility.isValidCategory
 import utils.ScannerInput
 import utils.ScannerInput.readNextInt
 import utils.ScannerInput.readNextLine
+import utils.Utilities.isValidText
+import utils.Utilities.validRange
 import java.io.File
 import java.lang.System.exit
 
@@ -68,11 +69,28 @@ fun runMenu(){
 
 fun addNote(){
     //logger.info { "addNote() function invoked" }
-    val noteTitle = readNextLine("Enter a title for the note: ")
-    val noteContents = readNextLine("Enter contents of the note: ")
-    val notePriority = readNextInt("Enter priority (1-low, 2, 3, 4, 5-high): ")
-    val noteCategory = readNextLine("Enter a category for the note: ")
-    val noteStatus = readNextInt("Enter a status: (1-todo, 2-doing, 3-done: ")
+    var noteTitle = readNextLine("Enter a title for the note: ")
+    while(!isValidText(noteTitle))
+        noteTitle = readNextLine("Please enter a title for the note: ")
+
+
+    var noteContents = readNextLine("Enter contents of the note: ")
+    while(!isValidText(noteContents))
+        noteContents = readNextLine("Please enter contents of the note: ")
+
+    var notePriority = readNextInt("Enter priority (1-low, 2, 3, 4, 5-high): ")
+    while (!validRange(notePriority,1,5))
+        notePriority = readNextInt("Please enter a priority (1-low, 2, 3, 4, 5-high): ")
+
+
+    var noteCategory = readNextLine("Enter one of the categories: (Hobby, College, Holiday, Work, Misc): ").lowercase()
+    while(!isValidCategory(noteCategory.lowercase()))
+        noteCategory = readNextLine("Enter one of the categories: (Hobby, College, Holiday, Work, Misc): ").lowercase()
+
+    var noteStatus = readNextInt("Enter a status: (1-todo, 2-doing, 3-done): ")
+    while (!validRange(noteStatus,1,3))
+        noteStatus = readNextInt("Enter a status: (1-todo, 2-doing, 3-done): ")
+
     val isAdded = noteAPI.add(Note(noteTitle, noteContents, notePriority, noteCategory, noteStatus, false))
 
     if (isAdded) {
