@@ -258,6 +258,7 @@ fun searchNotes(){
 fun save() {
     try {
         noteAPI.store()
+        println("Successfully Saved to File")
     } catch (e: Exception) {
         System.err.println("Error writing to file: $e")
     }
@@ -266,6 +267,7 @@ fun save() {
 fun load() {
     try {
         noteAPI.load()
+        println("Successfully Loaded from File")
     } catch (e: Exception) {
         System.err.println("Error reading from file: $e")
     }

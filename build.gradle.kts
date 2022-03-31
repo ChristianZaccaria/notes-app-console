@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.projectlombok:lombok:1.18.20")
     testImplementation(kotlin("test"))
 
     // https://mvnrepository.com/artifact/io.github.microutils/kotlin-logging
@@ -29,8 +30,12 @@ dependencies {
     // https://mvnrepository.com/artifact/org.codehaus.jettison/jettison
     implementation("org.codehaus.jettison:jettison:1.4.1")
 
-// https://mvnrepository.com/artifact/org.yaml/snakeyaml
-    implementation("org.yaml:snakeyaml:1.26")
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.1")
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-kotlin
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
+
 
 
 

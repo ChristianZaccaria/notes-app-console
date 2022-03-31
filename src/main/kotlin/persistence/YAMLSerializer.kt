@@ -1,31 +1,30 @@
 package persistence
 
-import com.thoughtworks.xstream.XStream
-import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver
-import com.thoughtworks.xstream.io.xml.DomDriver
+import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
+import com.fasterxml.jackson.module.kotlin.KotlinModule
 import models.Note
-import org.yaml.snakeyaml.Yaml
-
-import java.io.*
+import java.io.File
 
 
 class YAMLSerializer(private val file: File) : Serializer {
 
     @Throws(Exception::class)
     override fun read(): Any {
-        val xStream = XStream(JettisonMappedXmlDriver())
-        xStream.allowTypes(arrayOf(Note::class.java))
-        val inputStream = xStream.createObjectInputStream(FileReader(file))
-        val obj = inputStream.readObject() as Any
-        inputStream.close()
-        return obj
+
+        var objectMapper = ObjectMapper(YAMLFactory())
+        objectMapper.registerModule(KotlinModule())
+        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+        return objectMapper
+            .readerFor(object: TypeReference<List<Note>>(){})
+            .readValue(File(file.toString()))
     }
 
     @Throws(Exception::class)
     override fun write(obj: Any?) {
-        val xStream = XStream(JettisonMappedXmlDriver())
-        val outputStream = xStream.createObjectOutputStream(FileWriter(file))
-        outputStream.writeObject(obj)
-        outputStream.close()
+        var objectMapper = ObjectMapper(YAMLFactory())
+        objectMapper.writeValue(file, obj);
         }
 }

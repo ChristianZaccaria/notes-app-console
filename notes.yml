@@ -1,1 +1,7 @@
-{"object-stream":{"list":[""]}}
+---
+- noteTitle: "Play Sports"
+  noteContents: "play soccer and pingpong"
+  notePriority: 3
+  noteCategory: "hobby"
+  noteStatus: 1
+  noteArchived: false
